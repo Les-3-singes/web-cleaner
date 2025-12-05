@@ -1,0 +1,41 @@
+{
+  "manifest_version": 2,
+  "name": "Web Cleaner",
+  "version": "1.0.0",
+  "description": "Nettoyez le web comme VOUS l'entendez ! Masquez définitivement les éléments indésirables sur vos sites préférés.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "<all_urls>"
+  ],
+  "browser_action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "scripts": ["background/background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/content.js"],
+      "css": ["content/content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "web-cleaner@ndi2025.com",
+      "strict_min_version": "58.0"
+    }
+  }
+}
